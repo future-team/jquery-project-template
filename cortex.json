@@ -1,0 +1,32 @@
+{
+  "name": "jquery-project-template",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "assert": "*"
+  },
+  "dependencies": {
+    "hippo": "^1.2.15"
+  },
+  "directories": {
+    "src": "dist",
+    "html": "html"
+  },
+  "scripts": {
+    "prebuild": "gulp"
+  },
+  "repository": "",
+  "keywords": [
+    "apollo-shop-static"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "min.xiao",
+    "email": "min.xiao@dianping.com"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}
