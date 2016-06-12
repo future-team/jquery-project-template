@@ -19,7 +19,7 @@ import 'bootstrap/dist/css/bootstrap.css';
  * 这种方式可以引入cortex包
  */
 
-import hippo from '@cortex/hippo';
+//import hippo from '@cortex/hippo';
 
 //引入页面级依赖的less，页面中可能存在多个less文件，可以在resources/less下建立目录管理每个页面
 import testStyle from  '../resources/less/test.less';

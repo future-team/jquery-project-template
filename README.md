@@ -11,7 +11,11 @@
 ```js
 
 	import action from '../utils/perform-action';
-	
+	/**
+     * 这种方式可以引入cortex包，前提是先安装cortex依赖包
+     */
+    import hippo from '@cortex/hippo';
+    
 	//逻辑入口，类似main
 	action('test',(fetch)=>{
 		
