@@ -26,18 +26,17 @@ import testStyle from  '../resources/less/test.less';
 
 import TestService from '../service/TestService';
 
-action('test',(url)=>{
+action('test',(fetch)=>{
 
-    //此方式为jquery执行函数的标准写法，$中的函数体会等待页面中dom准备就绪后就会执行。
-    $(function(){
+    new TestService();
+    //除了这种方式获取dev环境的url，还可以通过调用ENV.getAjaxUrl(url)方式获取
 
-        new TestService();
-        //除了这种方式获取dev环境的url，还可以通过调用ENV.getAjaxUrl(url)方式获取
-        $.get(url('/test?id=1'),(data)=>{
+    fetch('/test?id=1',{
+        success:(data)=>{
 
             //这里目前是获取的本地src/mocks下test.json的数据
             console.dir(data);
-        },'json');
+        }
     });
 });
 
