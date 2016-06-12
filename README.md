@@ -122,9 +122,23 @@
 
 ## 本地调试
 
+### 前端资源调试
+
+- 所有action文件需要在src/index.js中被引入
+- 执行npm(cnpm) install
+- 执行cortex install
+- 执行npm run dev 启动本地环境，预览页面
+
+### 后端调试
+
 在java项目.ftl中引入通过 npm run dev启动好的链接文件
 
 ```
+	<script>
+		window.ENV={
+			actionName:'actionName' //对应action中定义的名字
+		};
+	</script>
 	<script src="http://127.0.0.1:3005/dist/bundle.js"></script>
 ```
 或通过配置判断环境引入不同环境的文件
