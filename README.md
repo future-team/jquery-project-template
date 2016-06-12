@@ -116,6 +116,28 @@
 	<cortex:js resource="/app/jquery-project-template/test.js" decorate="true"></cortex:js>
 ```
 
+## 本地调试
 
+在java项目.ftl中引入通过 npm run dev启动好的链接文件
+
+```
+	<script src="http://127.0.0.1:3005/dist/bundle.js"></script>
+```
+或通过配置判断环境引入不同环境的文件
+
+```
+
+	#if Request['isLocal'] >
+    <script src="http://127.0.0.1:3005/dist/bundle.js"></script>
+    <#else>
+        <cortex:css resource="/app/jquery-project-template/test.css" decorate="true"></cortex:css>
+		<cortex:js resource="/app/jquery-project-template/jquery.js" decorate="true"></cortex:js>
+		<cortex:js resource="/app/jquery-project-template/test.js" decorate="true"></cortex:js>
+        <@cortex.jsFramework/>
+        <@cortex.facadesPlaceHolder/>
+    </#if>
+```
+
+** 如果有sso，请将sso配置文件禁用掉，或者手动配置sso信息 **
 
 
