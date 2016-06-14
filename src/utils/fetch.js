@@ -15,12 +15,13 @@
  * */
 function fetch(url,options={}){
 
+    url = url instanceof Function ? url():url.indexOf('mock')!=-1 ? url:ENV.getAjaxUrl(url);
     return $.ajax($.extend(true,{
         dataType:'json',
         type:'GET'
     },options,{
-        url:url instanceof Function ? url():url.indexOf('mock')!=-1 ? url:ENV.getAjaxUrl(url),
-        type:options.isDev ? 'GET' : (options.type||'GET')
+        url:url,
+        type:(url.indexOf('mock')!=-1||options.isDev) ? 'GET' : (options.type||'GET')
     } ) );
 }
 

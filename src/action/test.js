@@ -32,6 +32,7 @@ action('test',(fetch)=>{
     //除了这种方式获取dev环境的url，还可以通过调用ENV.getAjaxUrl(url)方式获取
 
     fetch('/test?id=1',{
+        type:'POST',
         success:(data)=>{
 
             //这里目前是获取的本地src/mocks下test.json的数据
