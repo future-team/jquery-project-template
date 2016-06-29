@@ -64,9 +64,16 @@ var webpackConfig = {
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
                 //loader: "style-loader!css-loader!less-loader"
             },
-            {
+            /*{
                 test   : /\.(woff|svg|eot|ttf)\??.*$/,
                 loader : 'file-loader'
+            },*/
+            {
+                test: /\.svg$/,
+                loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+            }, {
+                test: /\.woff|ttf|woff2|eot$/,
+                loader: 'url?limit=100000'
             },
             {
                 test: /\.(png|jpg)$/,
