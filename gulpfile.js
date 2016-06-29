@@ -43,9 +43,13 @@ gulp.task('hot', function (callback) {
       test: /\.less$/,
       loader: "style-loader!css-loader!less-loader"
     },
-    {
+    /*{
       test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
       loader : 'file-loader'
+    },*/
+    {
+      test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+      loader: 'url-loader?limit=5000000&name=[path][name].[ext]'
     },
     {
       test: /\.html$/,
@@ -53,11 +57,11 @@ gulp.task('hot', function (callback) {
     },
     {
       test: /\.css$/, loader: "style!css"
-    },
+    }/*,
     {
       test: /\.(png|jpg)$/,
       loader: 'url?limit=35000'
-    }
+    }*/
   ];
   wbpk.plugins = [
     new webpack.HotModuleReplacementPlugin(),
