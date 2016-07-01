@@ -24,7 +24,6 @@ var getEntry = function(){
 
     files.forEach(function(file) {
         var relativePath = path.relative(basedir, file);
-        console.dir(relativePath);
         webpackConfigEntry[relativePath.replace(/\.js/,'').toLowerCase()] = file;
     });
     return webpackConfigEntry;
@@ -36,8 +35,7 @@ function setCommonsChuck(){
     for(var item in entry){
         arr.push(item);
     }
-
-    return item;
+    return arr;
 }
 
 
@@ -60,7 +58,7 @@ var webpackConfig = {
                 loaders: ['babel'],
                 exclude: /node_modules/
             }, {
-                test: /\.less$/,
+                test: /\.(less$|css)$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
                 //loader: "style-loader!css-loader!less-loader"
             },
@@ -82,9 +80,6 @@ var webpackConfig = {
             {
                 test: /\.html$/,
                 loader: "handlebars-loader"
-            },
-            {
-                test: /\.css$/, loader: "style!css"
             }
         ]
     },
@@ -96,8 +91,11 @@ var webpackConfig = {
             $:      "jquery",
             jQuery: "jquery"
         }),
+        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.CommonsChunkPlugin({
-            names: setCommonsChuck()
+            names: setCommonsChuck()/*,
+            children: true,
+            async: true*/
         })
     ]
 };

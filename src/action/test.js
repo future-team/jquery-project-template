@@ -7,6 +7,7 @@ import action from '../utils/perform-action';
  * 可以像这样引入第三方样式库
  */
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap';
 
 /**
  * 本地环境根据resources里html页面中定义的actionName和dev值判断执行哪个action、是否请求本地mock数据
