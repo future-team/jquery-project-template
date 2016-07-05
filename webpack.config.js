@@ -45,6 +45,7 @@ var webpackConfig = {
         //libraryTarget: 'umd',
         path:path.join(__dirname, 'dist'),
         filename: '[name].js',
+        libraryTarget: "umd",
         publicPath: '/dist/'
     },
     resolve: {
